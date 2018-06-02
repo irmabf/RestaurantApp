@@ -2,7 +2,7 @@ package com.irmablanco.restaurantorder.model
 
 import java.io.Serializable
 
-data class Table (var name: String, var dish: List<Dish>?): Serializable {
+/*data class Table (var name: String, var dish: List<Dish>?): Serializable {
     constructor(name: String): this(name, null)
 
     /*fun Any?.toString(): String (source)
@@ -14,4 +14,6 @@ data class Table (var name: String, var dish: List<Dish>?): Serializable {
     override fun toString(): String {
         return name
     }
-}
+}*/
+
+data class Table(var name: String, var dish: Dish)

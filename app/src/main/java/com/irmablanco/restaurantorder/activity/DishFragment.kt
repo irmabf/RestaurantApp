@@ -1,6 +1,8 @@
 package com.irmablanco.restaurantorder.activity
 
 import android.app.Fragment
+
+//import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.view.*
 import com.irmablanco.restaurantorder.R
@@ -31,7 +33,14 @@ class DishFragment: Fragment() {
                  12f,
                 "Pizza hecha en horno de leña con 4 quesos")
     }*/
+    /** ====================================== FRAGMENTS LIFECYCLE =========================================================== */
 
+    /** onCreate -> nada que ver con el método onCreate de las activididades. En los fragments lo
+     * utilizamos para decir si tenemos menú.**/
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
     //Implementamos onCreateView, que es el metodo que equivale el onCreate de las actividades
     //Pero para los fragments
 
