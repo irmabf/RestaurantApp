@@ -10,15 +10,11 @@ import com.irmablanco.restaurantorder.model.Dish
 import kotlinx.android.synthetic.main.activity_dish.*
 
 class DishActivity: AppCompatActivity() {
-    /**El tag aqui pertenecería a las instancias, seria un
-     * atributo de instancia o de objeto y eso
-     * no es  correcto, con lo que crearemos un companion object
-     *Lo que creemos en un companion object pertenece a la clase y no al objeto
-     *El companion object es un equivalente al static var de java,
-     * un metodo estatico tambien se meteria en el companion object*/
-    //val TAG = DishActivity::class.java.canonicalName
-    /*companion object {
-        val TAG = DishActivity::class.java.canonicalName
-    }*/
+
+    /*Set up activity_dish which sets up fragment_dish*/
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_dish)
+    }
 
 }

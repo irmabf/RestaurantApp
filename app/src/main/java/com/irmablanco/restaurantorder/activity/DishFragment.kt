@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.view.*
 import com.irmablanco.restaurantorder.R
 import com.irmablanco.restaurantorder.model.Dish
-import kotlinx.android.synthetic.main.activity_dish.*
+import kotlinx.android.synthetic.main.fragment_dish.*
+
 
 class DishFragment: Fragment() {
     //Atributo para guardar el plato cuando nos lo pasen
@@ -36,16 +37,18 @@ class DishFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-
-        val root =  inflater?.inflate(R.layout.activity_dish, container, false)!!
+        return  inflater?.inflate(R.layout.fragment_dish, container, false)!!
+    }
+    /*📌Este metodo NO equivale al onViewCreated de las activividades, en este caso se usa para
+    * avisar de que la vista ya esta creada y es, por tanto, donde tenemos que actualizar la interdaz*/
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         //Este codigo me va a actualizar la interfaz
         dish = Dish(
                 "Hamburguesa",
                 R.drawable.hamburguesa_patatas_1,
                 10f,
                 "Hamburguesa de pollo hecha  a la parrilla con patatas fritas")
-
-        return root
     }
 
    /* override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
