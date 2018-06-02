@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RestaurantOrder</string>
+    <string name="price_format">Precio: %.2f€</string>
 </resources>
