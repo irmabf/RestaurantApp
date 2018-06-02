@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_activity_padding"
+    tools:context=".DishActivity">
+
+
+    <ImageView
+        android:id="@+id/dish_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/hamburguesa_patatas_1" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dish_image">
+
+        <TextView
+            android:id="@+id/dish_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Hamburguesa de pollo" />
+        <TextView
+            android:id="@+id/dish_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Hamburguesa de pollo con patatas hecha a la plancha para disfrutar en familia"/>
+        <TextView
+            android:id="@+id/dish_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="10 Euros"/>
+
+    </LinearLayout>
+</RelativeLayout>
