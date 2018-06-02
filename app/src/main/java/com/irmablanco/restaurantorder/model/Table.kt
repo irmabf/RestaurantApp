@@ -16,4 +16,4 @@ import java.io.Serializable
     }
 }*/
 
-data class Table(var name: String, var dish: Dish)
+data class Table(var name: String, var dish: Dish): Serializable

@@ -7,10 +7,34 @@ import android.os.Bundle
 import android.view.*
 import com.irmablanco.restaurantorder.R
 import com.irmablanco.restaurantorder.model.Dish
+import com.irmablanco.restaurantorder.model.Table
 import kotlinx.android.synthetic.main.fragment_dish.*
 
-
 class DishFragment: Fragment() {
+    /*
+    * Comunicar una actividad con su fragment. Que este fragment reciba argumentos de su actividad ActivityFragment
+    *
+    * El metodo newInstance(table: Table) creará nuevas instancias de DishFragment
+    *
+    * Los DishFragment, para personalizarse, recibiran datos de la mesa de la que queremos añadir info de pedidos...
+    *
+    *
+    * */
+
+    companion object {
+        val ARG_TABLE = "ARG_TABLE"
+        fun newInstance(table: Table): Fragment {
+            //Nos creamos el fragment.
+            val fragment = DishFragment()
+            //Nos creamos los argumentos del fragment.
+            val arguments = Bundle()
+            arguments.putSerializable(ARG_TABLE, table)
+            //Asignamos los argumentos al fragment.
+            fragment.arguments = arguments
+            //Devolvemos el fragment
+            return fragment
+        }
+    }
     //Atributo para guardar el plato cuando nos lo pasen
     //setter, para que cada vez que se mofica el atributo setter provocar
     //una serie que modifica la interfaz
@@ -52,12 +76,17 @@ class DishFragment: Fragment() {
     * avisar de que la vista ya esta creada y es, por tanto, donde tenemos que actualizar la interdaz*/
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (arguments != null){
+            val table = arguments.getSerializable(ARG_TABLE) as Table
+            dish = table.dish
+        }
         //Este codigo me va a actualizar la interfaz
-        dish = Dish(
+       /* dish = Dish(
                 "Hamburguesa",
                 R.drawable.hamburguesa_patatas_1,
                 10f,
-                "Hamburguesa de pollo hecha  a la parrilla con patatas fritas")
+                "Hamburguesa de pollo hecha  a la parrilla con patatas fritas")*/
     }
 
    /* override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {

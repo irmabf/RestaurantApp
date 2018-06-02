@@ -36,14 +36,17 @@ class TablePagerActivity : AppCompatActivity() {
             * que me están pasando como índice. Ej: Si tengo 3 mesas, se va a llamar 3 veces a este método,
              * la primera con pos 0, donde tengo que devolver la primera mesa o un fragment con la primera
              * mesa etc.
-             * Todavia no tenemos manera de personalizar el fragment para una mesa concreta asi que devolvemos
-             * el mismo siempre.
-             * *
+             *
+             * Invocamos a DishFragment con el metodo newInstance
              * **/
             override fun getItem(position: Int): Fragment {
-                return DishFragment()
+                return DishFragment.newInstance(tables.getTable(position))
             }
             override fun getCount() = tables.count
+
+            override fun getPageTitle(position: Int): CharSequence? {
+                return tables.getTable(position).name
+            }
             }
             //Paso el adaptador al view_pager, el adaptador dirá al pager los fragment que necesita
             view_pager.adapter = adapter
