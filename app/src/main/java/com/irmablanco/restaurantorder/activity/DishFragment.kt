@@ -1,8 +1,7 @@
 package com.irmablanco.restaurantorder.activity
 
-import android.app.Fragment
-
-//import android.support.v4.app.Fragment
+//import android.app.Fragment
+import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.view.*
 import com.irmablanco.restaurantorder.R
@@ -35,6 +34,7 @@ class DishFragment: Fragment() {
             return fragment
         }
     }
+
     //Atributo para guardar el plato cuando nos lo pasen
     //setter, para que cada vez que se mofica el atributo setter provocar
     //una serie que modifica la interfaz
@@ -59,42 +59,46 @@ class DishFragment: Fragment() {
     }*/
     /** ====================================== FRAGMENTS LIFECYCLE =========================================================== */
 
-    /** onCreate -> nada que ver con el método onCreate de las activididades. En los fragments lo
-     * utilizamos para decir si tenemos menú.**/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
-    //Implementamos onCreateView, que es el metodo que equivale el onCreate de las actividades
-    //Pero para los fragments
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return  inflater?.inflate(R.layout.fragment_dish, container, false)!!
+        return inflater.inflate(R.layout.fragment_dish, container, false)
     }
     /*📌Este metodo NO equivale al onViewCreated de las activividades, en este caso se usa para
     * avisar de que la vista ya esta creada y es, por tanto, donde tenemos que actualizar la interdaz*/
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        if (arguments != null){
-            val table = arguments.getSerializable(ARG_TABLE) as Table
-            dish = table.dish
-        }
         //Este codigo me va a actualizar la interfaz
-       /* dish = Dish(
-                "Hamburguesa",
-                R.drawable.hamburguesa_patatas_1,
-                10f,
-                "Hamburguesa de pollo hecha  a la parrilla con patatas fritas")*/
+        /* dish = Dish(
+                 "Hamburguesa",
+                 R.drawable.hamburguesa_patatas_1,
+                 10f,
+                 "Hamburguesa de pollo hecha  a la parrilla con patatas fritas")*/
+
+        val table = arguments?.getSerializable(ARG_TABLE) as Table
+        dish = table.dish
     }
 
-   /* override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater?.inflate(R.menu.pager, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return super.onOptionsItemSelected(item)
-    }*/
+    }
 }
+
+
+
+
+
+
+
+
+

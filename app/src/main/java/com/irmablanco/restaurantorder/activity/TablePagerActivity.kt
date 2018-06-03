@@ -1,9 +1,12 @@
 package com.irmablanco.restaurantorder.activity
 
-import android.app.Fragment
+
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v13.app.FragmentPagerAdapter
+//import android.support.v13.app.FragmentPagerAdapter
+//import android.app.Fragment
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentPagerAdapter
 import com.irmablanco.restaurantorder.R
 import com.irmablanco.restaurantorder.model.Tables
 import kotlinx.android.synthetic.main.activity_table_pager.*
@@ -30,7 +33,7 @@ class TablePagerActivity : AppCompatActivity() {
          *getItem me devuelve un fragment
          *
          * */
-        val adapter = object: FragmentPagerAdapter(fragmentManager){
+
             /**
             * getItem devuelve un fragment. Tengo que devolver es un nuevo fragment que representa el
             * que me están pasando como índice. Ej: Si tengo 3 mesas, se va a llamar 3 veces a este método,
@@ -39,6 +42,7 @@ class TablePagerActivity : AppCompatActivity() {
              *
              * Invocamos a DishFragment con el metodo newInstance
              * **/
+            val adapter = object: FragmentPagerAdapter(supportFragmentManager) {
             override fun getItem(position: Int): Fragment {
                 return DishFragment.newInstance(tables.getTable(position))
             }
